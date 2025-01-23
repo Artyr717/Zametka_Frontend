@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+* {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-image: url("assets/back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Unbounded", serif;
+}
+
+#root {
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 5fr; /* Две колонки: sidebar и content */
+    column-gap: 30px;
+    padding: 20px 30px; /* Отступы вокруг страницы */
+    margin: 0;
+}
+
+.sidebar {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 0 20px 20px 20px; /* Внутренние отступы */
+    color: #fff;
+    gap: 15px;
+    height: 100%; /* Учитываем отступ сверху и снизу */
+    cursor: default;
+}
+
+.content {
+    grid-column: 2;
+    display: grid;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    color: #fff;
+    gap: 15px;
+    height: calc(100vh - 40px); /* Учитываем отступ сверху и снизу */
+}
+
+.sidebar .menu {
+    grid-row: 2; /* Размещаем в центральной части */
+    display: flex;
+    font-weight: 400;
+    flex-direction: column; /* Ставим пункты меню вертикально */
+    gap: 15px; /* Отступы между пунктами меню */
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar .menu a {
+    user-select: none;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.sidebar .menu a span {
+    letter-spacing: 2px;
+    padding-left: 10px;
+}
+
+.sidebar .menu a:visited,
+a:active {
+    color: white;
+}
+
+.sidebar .menu a:hover {
+    background: rgba(204, 197, 185, 0.2);
+    border: none;
+    border-radius: 15px;
+}
+
+.sidebar .profile {
+    font-size: 12px;
+    font-weight: 300;
+    grid-row: 3; /* Размещаем в первой строке */
+    display: flex; /* Включаем Flexbox */
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 10px; /* Расстояние между фото, ником и описанием */
+    text-align: center; /* Выравниваем текст слева */
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    margin-top: auto;
+}
+
+.sidebar .profile img {
+    display: block;
+    width: 60px; /* Уменьшаем размер фото для лучшего вида */
+    height: 60px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.sidebar .profile-info {
+    display: flex;
+    flex-direction: column; /* Располагаем текстовые элементы вертикально */
+    margin-left: auto; /* Отодвигаем блок к центру */
+    margin-right: auto;
+}
+
+.sidebar .profile-info span {
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 0 15px;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+}
+
+.sidebar .profile-info p {
+    user-select: none;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 400;
+    margin: 4px 0px 4px 0px;
+    text-align: center;
+    padding: 3px 9px;
+    background-color: rgba(235, 94, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+}
+
+.sidebar .brand {
+    letter-spacing: 2px;
+    font-size: 20px;
+    grid-row: 1;
+    text-align: center;
+    font-weight: 700;
+    color: rgb(235, 94, 40);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: default;
+    user-select: none;
+}
+
+.login {
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Заголовок, поля ввода, кнопка */
+    gap: 20px;
+    margin: auto;
+    background-color: rgba(60, 60, 60, 0.2);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.login h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    margin: 40px auto 0 auto; /* Центрирование и нижний отступ */
+}
+
+.login form {
+    display: grid;
+    grid-template-rows: repeat(4, auto); /* Поля и кнопка */
+    gap: 15px;
+    padding: 20px 40px;
+}
+
+.login form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.login form input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.login form input:focus {
+    outline: none;
+    border-color: #EB5E28;
+    box-shadow: 0 0 5px rgba(235, 94, 40, 0.6);
+}
+
+.login form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #EB5E28;
+    border-radius: 5px;
+    background-color: #EB5E28;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login form button:hover {
+    background-color: rgba(235, 94, 40, 0.9);
+    box-shadow: 0 4px 15px rgba(235, 94, 40, 0.4);
+}
+
+.login form input,
+.login form button {
+    width: 100%; /* Поля ввода и кнопки будут растягиваться */
+    box-sizing: border-box; /* Учитывает padding и border в ширину */
+}
+
+.login .dont-have-acc {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.login .dont-have-acc:hover {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.register {
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Заголовок, поля ввода, кнопка */
+    gap: 20px;
+    margin: auto;
+    padding: 20px 40px;
+    background-color: rgba(60, 60, 60, 0.2);
+    border-radius: 10px;
+    color: #fff;
+
+}
+
+.register h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    margin: 40px auto 0 auto; /* Центрирование и нижний отступ */
+}
+
+.register form {
+    display: grid;
+    grid-template-rows: repeat(5, auto); /* Поля и кнопка */
+    gap: 15px;
+    padding: 20px 40px;
+}
+
+.register form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.register form label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.register form input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.register form input:focus {
+    outline: none;
+    border-color: #EB5E28;
+    box-shadow: 0 0 5px rgba(235, 94, 40, 0.6);
+}
+
+.register form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #EB5E28;
+    border-radius: 5px;
+    background-color: #EB5E28;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register form button:hover {
+    background-color: rgba(235, 94, 40, 0.9);
+    box-shadow: 0 4px 15px rgba(235, 94, 40, 0.4);
+}
+
+.register form input,
+.register form button {
+    width: 100%; /* Поля ввода и кнопки будут растягиваться */
+    box-sizing: border-box; /* Учитывает padding и border в ширину */
+}
+
+.register .already-have-acc {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.register .already-have-acc:hover {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.register .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+.register .profession-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.register .profession-div label {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+}
+
+.register select {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    transition: all 0.3s ease;
+    appearance: none; /* Убираем стандартные стрелки у браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer; /* Курсор для выпадающего списка */
+}
+
+.register select:focus {
+    outline: none;
+    border-color: #EB5E28;
+    box-shadow: 0 0 5px rgba(235, 94, 40, 0.6);
+}
+
+.register select option {
+    background-color: #333;
+    color: #fff;
+}
+
+.register .profession-div::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+@media (max-width: 850px) {
+    .login {
+        display: none; /* Скрываем элемент при ширине экрана 600px и больше */
+    }
+
+    .register {
+        display: none; /* Для мобильных устройств форма будет занимать 90% ширины */
+    }
+}
